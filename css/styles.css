@@ -42,3 +42,25 @@
 .gallery__link:hover {
   cursor: zoom-in;
 }
+
+.modal-body {
+  position: relative;
+  margin: 50px auto;
+  max-width: 850px;
+  padding: 25px;
+  border-radius: 10px;
+  background-color: aliceblue;
+}
+
+.modal-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  line-height: 1;
+  width: 20px;
+  height: 20px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
