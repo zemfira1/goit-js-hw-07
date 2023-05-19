@@ -55,14 +55,6 @@ function makeGallery(items) {
 makeGallery(galleryItems);
 //console.log(list);
 
-list.addEventListener('click', onListCkick);
+new SimpleLightbox('.gallery a', {captionsData: 'alt', captionDelay: 250}); 
 
-function onListCkick(event) {
-  event.preventDefault();
-  if (event.target.nodeName !== "IMG") {
-    return;
-  }
-
-    new SimpleLightbox('.gallery a', {captionsData: 'alt', captionDelay: 250}); 
-}
 

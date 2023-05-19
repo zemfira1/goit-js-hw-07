@@ -55,7 +55,7 @@ makeGallery(galleryItems);
 
 list.addEventListener('click', onListCkick);
 
-const body = document.querySelector('body');
+//const body = document.querySelector('body');
 
 function onListCkick(event) {
   event.preventDefault();
@@ -63,18 +63,28 @@ function onListCkick(event) {
     return;
   }
 
+  //добавляем опшионс как объект вторым параметром при создании instance?
   const instance = basicLightbox.create(`
     <img src="${event.target.dataset.source}" width="800" height="600">
-  `);
-  
-  instance.show();
+  `, {
+    onShow: (instance) => {
+      document.addEventListener('keydown', (event) => {
+        if (event.code === "Escape") {
+          instance.close();
+        }
+      })
+    },
+                         //Намудрила, как поняла. Или я не поняла, что скорее всего...
+                         //Но вроде всё работает))))
+    onClose: (instance) => { 
+      document.removeEventListener('keydown', () => { });
+      list.removeEventListener('click', () => { });
+    },
+  });   
 
-  body.addEventListener('keydown', (event) => {
-    if (event.code === "Escape") {
-      instance.close();
-    }
-  });
+  instance.show();
 }
+
 
 //Здравтсвуйте! Не посмотрела внимательно, как должно выглядеть и сделала сначала с 
 //кнопкой закрытия, поэтому вставлены 2 класса в ccs.
