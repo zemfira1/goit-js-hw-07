@@ -53,7 +53,7 @@ function makeGallery(items) {
 makeGallery(galleryItems);
 //console.log(list);
 
-list.addEventListener('click', onListCkick);
+list.addEventListener('click', onListCkick,);
 
 //const body = document.querySelector('body');
 
@@ -84,6 +84,7 @@ function onListCkick(event) {
 
   instance.show();
 }
+
 
 
 //Здравтсвуйте! Не посмотрела внимательно, как должно выглядеть и сделала сначала с 
